@@ -5,10 +5,11 @@ date: "Sunday, July 27, 2014"
 output: html_document
 ---
 
-## Concepts of the dataset
-The experiments have been carried out with a group of 30 volunteers within an age bracket of 19to 48 years.
+## Code:
+   All code can be found in tidy_project.md
+   The R code can be dowloaded at run_analysis.R
   
-Each person performed six activities:
+# Data can be grouped by:
 * WALKING
 * WALKING UPSTAIRS
 * WALKING DOWNSTAIRS
@@ -16,51 +17,21 @@ Each person performed six activities:
 * STANDING
 * LAYING
   
-Captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate
-  
-The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
-  
-training = 30 * 0.7  = 21 subjects
-data     = 30 * 0.3  =  9 subjects
-  
 
-```{r, echo=FALSE}
-activ <- read.csv("activity_labels.txt",head=FALSE, sep=" ")
-feat <- read.csv("features.txt",head=FALSE, sep=" ")
-colNames <- feat$V2
-```
-  
 ### Data training:
-   . Each row identifies the subject who performed the activity 
-   . For each window sample. Its range is from 1 to 30. 
+   . Only data training can be analysed
+   . Data test no. 
    
-```{r, echo=FALSE}
-subj_train <- read.csv("subject_train.txt",head=FALSE, sep=" ")
-ytrain <- read.csv("y_train.txt",head=FALSE, sep=" ")
-data_train <- read.table("tidy.txt", sep=" ");
-names(data_train) <- c("subject", "y", "tBodyAccMag.mean()", "tBodyAcc-energy()-X",  "tBodyAcc-entropy()-X", "fBodyGyro-mean()-Z",  "fBodyGyro-energy()-Z")
-```
-  
-```{r, echo=TRUE}
-str(data_train)
-```
-  
-Dimension and header:
-```{r, echo=TRUE}
-dim(data_train)
-names(data_train)
-```
-  
-```{r, echo=FALSE}
-WALKING <- 1
-WALKING_UPSTAIRS <- 2
-WALKING_DOWNSTAIRS <- 3
-SITTING <- 4
-STANDING <- 5
-LAYING <- 6
-data_walk_up <- data_train[data_train$y == WALKING_UPSTAIRS, ]
-data_laying  <- data_train[data_train$y == LAYING, ]
-labels <- c("WALK", "WALK UP", "WALK DWN", "SITT", "STAND", "LAY")
+### Variables:
+  subj_train: vector with subjetcts
+  data_train: data training data.frame
+
+### Data analysis:
+  Dimension and header is shown
+ 
+  data_walk_up <- walk data is filtered
+  data_laying  <- data_train[data_train$y == LAYING, ]
+labels
 ```
   
 ### Descriptive analysis
